@@ -47,23 +47,25 @@ python3 -m http.server 8000
 
 ## GitHub Pages 部署
 
-1. 建立 public repo（建議名 `ee-learning-island`）：
+1. 推送到 public repo（目前部署於 `gc999999/EE-Hi`）：
 
    ```bash
    git init
    git add -A
    git commit -m "EE Learning Island: interactive curriculum island"
    git branch -M main
-   git remote add origin https://github.com/<username>/ee-learning-island.git
+   git remote add origin git@github.com:gc999999/EE-Hi.git
    git push -u origin main
    ```
 
 2. 在 repo 的 **Settings → Pages**，Source 選 **Deploy from a branch**，branch 選 `main`、目錄 `/ (root)`，Save。
+   （或用 API：`POST /repos/gc999999/EE-Hi/pages`，body `{"source":{"branch":"main","path":"/"}}`；
+   fine-grained token 需 **Pages = Read and write** 或 **Administration = Read and write**。）
 
 3. 約 1 分鐘後開啟公開 URL：
 
    ```
-   https://<username>.github.io/ee-learning-island/
+   https://gc999999.github.io/EE-Hi/
    ```
 
    確認頁面可開啟、PUMA 立繪（`assets/puma.jpg`）正常顯示、無 404 資源。
