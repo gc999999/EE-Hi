@@ -510,7 +510,10 @@
         }
         if (state.mode === "course" && state.id === id) closeAll();
         else selectCourse(id);
+        return;
       }
+      // 點到非互動區域（天空／海面／氣泡等）＝跳出卡片
+      if (state.mode) closeAll();
     });
 
     panelBody.addEventListener("click", (e) => {
